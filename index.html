@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.safvanajimsad.com</title>
+    <link rel="icon" href="images/sj_logo_transparent-removebg-preview.png" type="image/png">
+
+    <!-- icon-link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: rgb(250, 239, 225);
+        }
+        /* Transparent Navbar Styling */
+        .nav {
+            background-color: rgba(0, 0, 0, 0.0); /* Transparent navbar */
+            position: absolute; /* Place navbar over the video */
+            width: 100%;
+            z-index: 10; /* Ensure navbar is above the video */
+        }
+
+        .nav .nav-link {
+            color: rgb(9, 9, 9); /* Text color */
+            font-size: 18px;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: rgb(6, 6, 6); /* Underline color */
+            transition: width 0.3s ease;
+        }
+
+        .nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav .nav-link:hover {
+            color: #353434; /* Dark gray hover text */
+        }
+
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
+
+        /* Fullscreen Video Section */
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+        }
+
+        .video-section video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover entire section */
+        }
+
+        /* Text Over Video */
+        .video-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(5, 5, 5);
+            text-align: center;
+            z-index: 15; /* Ensure text is above the video */
+            padding-top: 290px;
+        }
+
+        .video-text h1 {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+
+        .video-text p {
+            font-size: 1.5rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .video-text h1 {
+                font-size: 2rem;
+            }
+
+           
+        }
+        /* About Section Styling */
+  
+        .about-section .container {
+    background-color: rgba(170, 127, 9, 0.34); /* Semi-transparent overlay to make text stand out */
+    padding: 30px; /* Optional padding */
+    border-radius: 10px; /* Optional rounded corners */
+}
+.about-section {
+    /* Path to your background image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the background image */
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.about-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color:  #964B00;
+}
+
+.about-section .professional-status {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #000;
+    max-width: 500px; /* Limit the width of the paragraph */
+    line-height: 1.6;
+}
+
+.about-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for the image */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-section h1 {
+        font-size: 2rem;
+    }
+
+    .about-section .professional-status {
+        font-size: 1rem;
+    }
+}
+.faq-section {
+            padding: 120px 0;
+        }
+
+        .faq-section h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #964B00;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .faq-column {
+            width: 48%; /* Two columns, each taking 48% of the container */
+            margin-bottom: 30px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-item .answer {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9e8d8;
+            border-radius: 5px;
+        }
+
+        .faq-item.active .answer {
+            display: block;
+        }
+
+        /* Media Query for Responsiveness */
+        @media (max-width: 768px) {
+            .faq-column {
+                width: 100%; /* Stack columns on small screens */
+            }
+        }
+
+ /* Skills Section */
+ .skills-section {
+            padding: 60px 0;
+            background-color:  #e5ae8a;
+        }
+
+        .skills-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #964B00;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .skills-section p {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #000;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        /* Categories (Frontend and Backend) */
+        .category {
+            margin-bottom: 50px;
+        }
+
+        .category h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .tools img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .tools img:hover {
+            transform: scale(1.1); /* Slight zoom effect on hover */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tools img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .skills-section h1 {
+                font-size: 2rem;
+            }
+
+            .skills-section p {
+                font-size: 1rem;
+            }
+
+            .category h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* importentsection */
+
+        .importance-section {
+            padding: 60px 15px;
+            background-color:  rgb(250, 239, 225);
+        }
+
+        .importance-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #964B00;
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .importance-section .point {
+            font-size: 1.1rem;
+            color: #000;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            padding-left: 25px; /* Add padding to align bullet points */
+            position: relative;
+        }
+
+        .importance-section .point::before {
+            content: "•"; /* Bullet point */
+            font-size: 1.5rem;
+            color: #964B00; /* Blue color for bullet points */
+            margin-right: 10px;
+            position: absolute;
+            left: 0;
+        }
+
+        .importance-section .col-12 {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        /* Equal Height for Columns */
+        .importance-section .col-md-6 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Adjust Column Widths and Alignment */
+        .importance-section .col-md-6 {
+            padding: 15px;
+        }
+
+        /* Responsive Design for Mobile Devices */
+        @media (max-width: 768px) {
+            .importance-section h1 {
+                font-size: 2rem;
+            }
+
+            .importance-section .point {
+                font-size: 1rem;
+            }
+
+            /* Stack the columns vertically on small screens */
+            .importance-section .col-md-6 {
+                flex: 1 1 100%; /* Take up full width */
+                margin-bottom: 30px;
+            }
+
+            .importance-section .point {
+                font-size: 1rem;
+                padding-left: 20px;
+            }
+        }
+
+        
+        /* Portfolio Section Styling */
+        .portfolio-section {
+            padding: 50px 15px;
+            background-color: #edd4c3;
+        }
+
+        .portfolio-section h1 {
+            text-align: center;
+            margin-bottom: 70px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #964B00;
+        }
+
+        .project-card {
+            width: 350px;
+            height: 400px; 
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .project-card img:hover {
+            filter: brightness(1.2);
+            transform: scale(1.05);
+        }
+
+        .project-card .card-body {
+            padding: 30px;
+        }
+
+        .project-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .project-card a {
+            display: block;
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        .project-card p {
+            font-size: 0.95rem;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .project-card .btn {
+            background-color: #0056b3;
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .project-card .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* ....contact section */
+.contact-section {
+  padding: 80px 20px;
+  background-color: #f6f3f3;
+}
+
+.contact-info h3, .contact-info h2, .contact-form h2 {
+  color: #964B00;
+}
+
+.contact-info h2, .contact-form h2 {
+  margin-top: 10px;
+  position: relative;
+}
+
+.underline {
+  width: 50px;
+  height: 3px;
+  background-color: #000;
+  margin: 10px 0;
+}
+
+.contact-details li {
+  list-style: none;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.contact-details i {
+  margin-right: 10px;
+  color: #964B00;
+}
+
+.contact-details a {
+  color: #5f5d5d;
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  color: #007bff;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+}
+
+.contact-form button {
+  background-color: #964B00;
+  color: #fff;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #ca8c4d;
+}
+
+.form-response {
+  margin-top: 10px;
+  color: green;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-info, .contact-form {
+    text-align: center;
+  }
+
+  .contact-details {
+    padding: 0;
+  }
+}
+
+/* ........foooter-style......... */
+.footer {
+  background-color: #33200d;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.social-links li {
+  margin: 0 15px;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .social-links {
+    margin-top: 10px;
+  }
+
+  .social-links li {
+    margin: 0 10px;
+  }
+}
+
+
+       
+ 
+
+    </style>
+</head>
+<body>
+    <!-- Transparent Navbar -->
+    <nav class="navbar navbar-expand-lg nav">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="images/sj_logo_transparent-removebg-preview.png" alt="Logo" style="width: 100px;">
+            </a>
+
+            <!-- Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aboutid">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Video Section -->
+    <section class="video-section">
+        <video autoplay muted loop>
+            <source src="images/fotor-video_remover_object-preview-20241220160954.webm" type="video/mp4">
+            <!-- Your browser does not support the video tag. -->
+        </video>
+
+        <!-- Text Over Video -->
+        <div class="video-text">
+            <h1>So, Who Am I ?</h1>
+            <!-- <p>I am a MERN stack developer passionate about building dynamic and responsive web applications. I specialize in MongoDB, Express.js, React, and Node.js to create full-stack solutions.</p> -->
+        </div>
+    </section>
+
+
+<!-- section..about -->
+    <section class="about-section py-5" >
+        <div class="container" id="aboutid">
+            <div class="row">
+                <!-- First Column: Name and Professional Status -->
+                <div class="col-12 col-md-6">
+                    <h1>SafvanaJimsad</h1>
+                    <p class="professional-status">"As a highly skilled and confident MERN stack developer, I specialize in delivering top-notch web applications using MongoDB, Express.js, React, and Node.js. With extensive experience in freelancing, I have a proven track record of delivering high-quality, efficient, and scalable solutions tailored to meet each client's unique needs. I am dedicated to providing innovative solutions, ensuring seamless user experiences, and maintaining clear communication throughout the project. My goal is to help businesses grow by creating powerful, responsive, and user-friendly web applications."</p>
+                </div>
+    
+                <!-- Second Column: Professional Image -->
+                <div class="col-12 col-md-6">
+                    <img src="images/WhatsApp Image 2024-12-19 at 22.59.29_adaba3be.jpg" alt="Professional Image" class="img-fluid ">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Importance of MERN Stack Section -->
+    <section class="importance-section">
+        <div class="container">
+            <h1>What is the importance of MERN stack developers in today's world?</h1>
+            <div class="row">
+                <!-- First Column: First 5 Points -->
+                <div class="col-12 col-md-6">
+                    <div class="point">
+                        <strong>End-to-End Development</strong><br>
+                        MERN (MongoDB, Express.js, React.js, Node.js) is a full-stack framework that allows developers to build complete web applications, covering both frontend and backend development. Developers can handle the entire project lifecycle, reducing the need for multiple specialists and streamlining communication.
+                    </div>
+                    <div class="point">
+                        <strong>Demand for Scalable Web Applications</strong><br>
+                        Businesses today require scalable, dynamic, and interactive web applications. React.js, a key component of the MERN stack, enables the creation of responsive and user-friendly interfaces. Node.js ensures that these applications can handle high traffic with efficient server-side processing.
+                    </div>
+                    <div class="point">
+                        <strong>Cost Efficiency</strong><br>
+                        MERN stack development relies on JavaScript for both client and server-side coding, reducing the need for learning multiple languages and frameworks. This efficiency lowers development costs for companies and speeds up project timelines.
+                    </div>
+                    <!-- <div class="point">
+                        <strong>Open-Source Ecosystem</strong><br>
+                        All technologies in the MERN stack are open-source, which means businesses can avoid licensing costs and benefit from a large community of contributors and developers. This encourages innovation and faster resolution of technical issues.
+                    </div> -->
+                    <div class="point">
+                        <strong>Popularity of JavaScript</strong><br>
+                        JavaScript is one of the most widely used programming languages, making MERN stack developers highly versatile and employable. Knowledge of JavaScript frameworks like React.js is crucial for creating modern, high-performance applications.
+                    </div>
+                </div>
+
+                <!-- Second Column: Remaining 4 Points -->
+                <div class="col-12 col-md-6">
+                    <div class="point">
+                        <strong>Cross-Platform Compatibility</strong><br>
+                        MERN stack developers can create applications that work seamlessly across platforms, such as desktops, mobiles, and tablets, ensuring a broader reach.
+                    </div>
+                    <div class="point">
+                        <strong>Growing Startup Ecosystem</strong><br>
+                        Startups and small businesses often prefer the MERN stack for its flexibility, speed, and ability to scale. Developers with MERN expertise are in high demand in these environments.
+                    </div>
+                    <div class="point">
+                        <strong>Cloud Integration and Scalability</strong><br>
+                        MongoDB, a NoSQL database, integrates well with cloud platforms, enabling businesses to scale their applications efficiently. This scalability is crucial in sectors like e-commerce, healthcare, and social media.
+                    </div>
+                    <div class="point">
+                        <strong>Job Market Opportunities</strong><br>
+                        With the rise of digital transformation, MERN stack developers find opportunities in diverse industries such as fintech, edtech, entertainment, and more. Freelance opportunities are abundant, making it a lucrative skill for independent developers.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- skills -->
+
+     <section class="skills-section" id="skills">
+        <div class="container">
+            <!-- Certifications Section -->
+            <div class="certifications">
+                <h1>My Certifications</h1>
+                <p>I have completed various certifications to improve my skills in both frontend and backend development. I am constantly learning new technologies to stay up-to-date in the ever-evolving tech world.</p>
+            </div>
+
+            <!-- Frontend Developer Tools -->
+            <div class="category">
+                <h2>Frontend Developer (MERN Stack)</h2>
+                <div class="tools">
+                    <img src="images/html.logo.png" alt="HTML">
+                    <img src="images/CSS-Logo-2011.png" alt="CSS">
+                    <img src="images/jslogo.jpg" alt="JavaScript">
+                    <img src="images/png-transparent-react-react-native-logos-brands-in-colors-icon-thumbnail.png" alt="React">
+                    <img src="images/tslogo.png" alt="TypeScript">
+            
+                </div>
+            </div>
+
+            <!-- Backend Developer Tools -->
+            <div class="category">
+                <h2>Backend Developer (MERN Stack)</h2>
+                <div class="tools">
+                    <img src="images/node.js" alt="Node.js">
+                    <img src="images/exprsjs.jpg" alt="Express.js">
+                    <img src="images/mongodb.jpg" alt="MongoDB">
+                   
+                    
+                </div>
+            </div>
+        </div>
+    </section> 
+
+       <!-- Frequently Asked Questions Section -->
+       <section class="faq-section" id="faq">
+        <h1>Frequently Asked Questions</h1>
+        <div class="container">
+            <div class="faq-container">
+                <!-- First Column of Questions -->
+                <div class="faq-column">
+                    <div class="faq-item">
+                        <h5>What is MERN stack development?</h5>
+                        <div class="answer">
+                            <p>The MERN stack is a collection of technologies used to build full-stack web applications. It includes MongoDB (database), Express.js (backend framework), React (frontend library), and Node.js (runtime environment).</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h5>Why should I choose a MERN stack for my web application?</h5>
+                        <div class="answer">
+                            <p>MERN stack is popular because it uses JavaScript for both frontend and backend, making it easier to manage and develop. It’s also highly scalable, flexible, and has a large developer community, ensuring continuous support and updates.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h5>What are the benefits of using React in MERN stack development?</h5>
+                        <div class="answer">
+                            <p>React is a fast, efficient, and flexible library for building user interfaces. It helps create dynamic, responsive web applications with reusable components, improving development speed and maintainability.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h5>How does MongoDB fit into the MERN stack?</h5>
+                        <div class="answer">
+                            <p>MongoDB is a NoSQL database that stores data in a flexible, JSON-like format (BSON). It allows for fast and scalable data storage, making it a perfect fit for applications that require high performance and flexibility.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Column of Questions -->
+                <div class="faq-column">
+                    <div class="faq-item">
+                        <h5>What kind of projects do you work on as a MERN stack developer?</h5>
+                        <div class="answer">
+                            <p>As a MERN stack developer, I specialize in building dynamic and interactive web applications, including e-commerce sites, social media platforms, content management systems (CMS), and custom web solutions.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h5>What is the development process for a MERN stack project?</h5>
+                        <div class="answer">
+                            <p>The development process involves gathering project requirements, designing the application architecture, building the frontend with React, setting up the backend with Node.js and Express, and integrating MongoDB for data storage. Testing, deployment, and maintenance are also part of the process.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h5>How do you ensure the security of MERN stack applications?</h5>
+                        <div class="answer">
+                            <p>Security is a priority in every project. I implement secure coding practices, use JWT for authentication, protect APIs with OAuth, ensure proper input validation, and take measures to prevent common security threats like SQL injection and cross-site scripting (XSS).</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h5>How much time does it take to develop a MERN stack application?</h5>
+                        <div class="answer">
+                            <p>The time required depends on the complexity of the project. Simple applications may take a few weeks, while more complex projects may take several months. I always provide a detailed timeline after understanding the project requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+  <!-- Portfolio Section -->
+  <section class="portfolio-section" id="projects">
+    <div class="container">
+        <h1>Portfolio Highlights</h1>
+        <div class="row g-4">
+            <!-- Project Card 1 -->
+            <div class="col-md-4">
+                <div class="card project-card">
+                    <img src="images/netflix.jpg" alt="Netflix Clone">
+                    <div class="card-body">
+                        <h4>Netflix</h4>
+                        <a href="#">Website Clone, Jan 2024</a>
+                        <p>A Netflix replica showcasing responsive design and video streaming features.</p>
+                        <a href="https://safwanasafu.github.io/Netflix.repo/" class="btn">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project Card 2 -->
+            <div class="col-md-4">
+                <div class="card project-card">
+                    <img src="images/cola.webp" alt="Coca-Cola Clone">
+                    <div class="card-body">
+                        <h4>
+                            Brand Kinley | Coca-Cola</h4>
+                        <a href="#">Website Clone, Feb 2024</a>
+                        <p>Interactive brand site featuring Coca-Cola's design and branding elements.</p>
+                        <a href="https://safwanasafu.github.io/Brandkindly.repo/" class="btn">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+              <!-- Project Card 3 -->
+              <div class="col-md-4">
+                <div class="card project-card">
+                    <img src="images/furni.webp" alt="Furni Website">
+                    <div class="card-body">
+                        <h4>Furni. </h4>
+                        <a href="#">Responsive Design, Mar 2024</a>
+                        <p>A modern furniture e-commerce platform with a sleek design.</p>
+                        <a href="https://safwanasafu.github.io/Resposive.furni/" class="btn">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project Card 4 -->
+
+            <div class="col-md-4">
+                <div class="card project-card">
+                    <img src="images/bitbkt.jpg" alt="Bitbucket Clone">
+                    <div class="card-body">
+                        <h4>Bitbucket</h4>
+                        <a href="#">Website Clone, May 2024</a>
+                        <p>A collaborative platform for developers with Git repository management.</p>
+                        <a href=" https://safwanasafu.github.io/bitbucket/" class="btn">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+           
+            <!-- Project Card 5 -->
+            
+
+
+            <div class="col-md-4">
+                <div class="card project-card">
+                    <img src="images/wbtz2.webp" alt="Wibbitz Clone">
+                    <div class="card-body">
+                        <h4>Wibbitz Clone</h4>
+                        <a href="#">Website Clone, Jun 2024</a>
+                        <p>A video creation platform with advanced features and responsive design.</p>
+                        <a href=" https://safwanasafu.github.io/webbitsrepo/" class="btn">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project Card 6 -->
+             
+            <div class="col-md-4">
+                <div class="card project-card">
+                    <img src="images/fcebk.jpg" alt="Facebook Clone">
+                    <div class="card-body">
+                        <h4>Facebook </h4>
+                        <a href="#">Website Clone, Apr 2024</a>
+                        <p>A Facebook-inspired social media platform with dynamic features.</p>
+                        <a href=" https://safwanasafu.github.io/facebook.clone/" class="btn">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</section>
+
+<!-- contact section -->
+
+
+<section id="contact" class="contact-section" id="contact">
+    <div class="container">
+      <div class="row">
+        <!-- First Column -->
+        <div class="col-lg-6 contact-info">
+          <h3>I’D LOVE TO HEAR FROM YOU</h3>
+          <h2>Connect Me</h2>
+          <div class="underline"></div>
+          <p>
+            Ready to elevate your digital presence and grow your business? As a skilled MERN Stack Developer and Web Designer, I specialize in creating dynamic, user-friendly websites and applications tailored to your business needs. Let’s connect today to build a strong, impactful online presence for your brand.
+          </p>
+          <h4>Reach me through</h4>
+          <ul class="contact-details">
+            <li><i class="fas fa-map-marker-alt"></i> Kozhikode, India</li>
+            <li><i class="fas fa-phone-alt"></i> <a href="tel:+919645024087">+91 9645024087</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="https:safwanasafu2019@gmail.com">safwanasafu2019@gmail.com</a></li>
+            <li><i class="fab fa-github"></i> <a href="https://github.com/safwanasafu" target="_blank">github.com/safwanasafu</a></li>
+          </ul>
+        </div>
+  
+        <!-- Second Column -->
+        <div class="col-lg-6 contact-form">
+          <h2>Drop me a Hey</h2>
+          <div class="underline"></div>
+          <form id="contactForm">
+            <div class="form-group">
+              <!-- <label for="name">Your Name</label> -->
+              <input type="text" id="name" name="name" required placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+              <!-- <label for="email">Your Email Address</label> -->
+              <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+              <!-- <label for="phone">Your Phone Number</label> -->
+              <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+              <!-- <label for="message">How Can I Help You?</label> -->
+              <textarea id="message" name="message" rows="4" required placeholder="Type your message"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+          <p id="formResponse" class="form-response"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ...........footer-section............ -->
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Safvana. All Rights Reserved.</p>
+      <ul class="social-links">
+        <li><a href="https://github.com/safwanasafu" target="_blank"><i class="fab fa-github"></i></a></li>
+        <li><a href="https:safwanasafu2019@gmail.com"><i class="fas fa-envelope"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/safvanajimsad/ " target="_blank"><i class="fab fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+  
+  
+
+     
+    
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle FAQ answer visibility
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // submission.js-code..........
+
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const formResponse = document.getElementById('formResponse');
+  formResponse.textContent = 'Thank you for your submission..!!';
+  this.reset();
+});
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
+
+
+
